@@ -1,1 +1,1 @@
-SE Develops
+0x00. Shell, basics
