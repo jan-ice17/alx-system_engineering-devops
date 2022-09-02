@@ -7,4 +7,4 @@ adds execute permission to the owner of the file hello
 adds execute permission to the owner of the file hello
 Write a script that sets the permission to the file hello to other users
 script that sets the mode of the file hello to -rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
-Sets the mode of the file hello the same as olleh's mode
+Sets the mode of the file hello the same as olleh's modedds execute permission to all subdirectories of the current directory for the owner, the group of the owner and all the other users
