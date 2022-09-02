@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d -exec chmod a+x -- {} +\
+mkdir -m 751 dir_holberton
