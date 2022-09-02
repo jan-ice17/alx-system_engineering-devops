@@ -5,4 +5,4 @@ changes the owner of the file hello to the user betty
 creates an empty file called hello
 adds execute permission to the owner of the file hello
 adds execute permission to the owner of the file hello
-adds execution permission to the owner, the group owner and the other users, to the file hello
+Write a script that sets the permission to the file hello to other users
