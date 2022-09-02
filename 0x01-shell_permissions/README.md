@@ -12,3 +12,4 @@ Adds execute permission to all subdirectories of the current directory for the o
 creates a directory called my_dir with permissions 751 in the working directory
 Changes the group owner to holberton for the file hello
 Changes the owner to betty and the group owner to holberton for all the files and directories in the working directory
+Changes the owner and the group owner of the file _hello to betty and holberton respectively
