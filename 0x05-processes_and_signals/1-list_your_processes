@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# When in user mode this displays the current running time process
+
+ps -faux
