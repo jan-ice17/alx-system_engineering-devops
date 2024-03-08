@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# When in user orient format this displays the current running time process
+# shellcheck disable=SC2009
+
+ps -faux | grep "bash"
