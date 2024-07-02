@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# A bash script thats transfers a file from our client to a server
+
+if (( $# < 4 )); then # This is going to check if args is less than 4 cant be more
+echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY" #thats just displays if args are 3
+exit 1 #if error occurs
+fi #in bash we end if staments with that
+
+PATH_TO_FILE=$1
+IP=$2
+USERNAME=$3
+PATH_TO_SSH_KEY=$4
+
+scp -o StrictHostKeyChecking=no -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME@$IP:~/"
+# -o is for the option to set strict
+# -i is to set private key
+# :~/ hhome directory
+
