@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A bash script that Nginx server to have a                                                                             # Custom 404 page that contains the string                                                                                                                                                                                                      sudo apt-get update                                                                                                     sudo apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+ 
