@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Script that configures a new Ubuntu machine to respect above requirements
+
+# STEP 1 - make updates
+apt-get update
+
+# Install Nginx
+apt-get install -y nginx
+
+# It must return a page that contains the string Hello World!
+echo "Hello World!" > /var/www/html/index.html
+
+# Modify Nginx server block to include a redirect
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.ehoneahobed.com permanent;"
+sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Restart Nginx to apply changes
+service nginx restart
+
