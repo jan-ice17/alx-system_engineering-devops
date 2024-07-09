@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Gettin' web02 to talk to web01
+if ! command -v nginx > /dev/null 2>&1; then
+	sudo apt-get update
+	sudo apt-get install -y nginx
+	ufw allow "Nginx HTTP"
+fi
+
+HOSTNAME=$(hostname)
+
+NGINX_CONFIG="/etc/nginx/sites-available/default"
+
+# Stickin' the hostname variable into the Nginx config
+sudo sed -i '/^ *server *{/,/^ *}$/s/^\( *server *{\)/\1\n    add_header X-Served-By '"$HOSTNAME"';/' "$NGINX_CONFIG"
+
+# Startin' up Nginx
+sudo service nginx start
