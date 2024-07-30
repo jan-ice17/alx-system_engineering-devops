@@ -38,7 +38,7 @@ def main():
 
     # Print the todo list progress
     print(f"Employee {EMPLOYEE_NAME} is done with tasks"
-            f"({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+          f"({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     for title in TASK_TITLE:
         print('\t ' + title)
 
