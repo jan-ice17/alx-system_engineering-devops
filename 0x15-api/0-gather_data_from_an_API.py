@@ -4,42 +4,44 @@
 import requests
 import sys
 
+
 def main():
     # Retrieve the user ID from the command line arguments
-    user_id = sys.argv[1]
+    userid = sys.argv[1]
 
     # Fetch user details using the user ID
-    user_url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
-    response_user = requests.get(user_url)
-    user_data = response_user.json()
-    employee_name = user_data.get("name")
+    url_usr = f"https://jsonplaceholder.typicode.com/users/{userid}"
+    response_usr = requests.get(url_usr)
+    users = response_usr.json()
+    EMPLOYEE_NAME = users.get("name")
 
     # Fetch todo list items for the user
-    todos_url = 'https://jsonplaceholder.typicode.com/todos'
-    params = {'userId': user_id}
-    response_todos = requests.get(todos_url, params=params)
+    url_todo = 'https://jsonplaceholder.typicode.com/todos'
+    params = {'userId': userid}
+    response = requests.get(url_todo, params=params)
 
-    if response_todos.status_code == 200:
-        todos = response_todos.json()
+    if response.status_code == 200:
+        todos = response.json()
 
     # Initialize counters for tasks
-    completed_tasks_count = 0
-    total_tasks_count = 0
-    completed_task_titles = []
+    NUMBER_OF_DONE_TASKS = 0
+    TOTAL_NUMBER_OF_TASKS = 0
+    TASK_TITLE = []
 
     # Iterate through the todo list
-    for task in todos:
-        if isinstance(task, dict):
-            total_tasks_count += 1
-            if task.get("completed") is True:
-                completed_tasks_count += 1
-                completed_task_titles.append(task.get("title"))
+    for j in todos:
+        if isinstance(j, dict):
+            TOTAL_NUMBER_OF_TASKS += 1
+        if j.get("completed") is True:
+            NUMBER_OF_DONE_TASKS += 1
+            TASK_TITLE.append(j.get("title"))
 
     # Print the todo list progress
-    print(f"Employee {employee_name} is done with tasks (/
-            {completed_tasks_count}/{total_tasks_count}):")
-    for title in completed_task_titles:
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    for title in TASK_TITLE:
         print('\t ' + title)
+
 
 if __name__ == '__main__':
     main()
+
