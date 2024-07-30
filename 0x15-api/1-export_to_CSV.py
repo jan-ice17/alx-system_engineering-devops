@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script retrieves a user's todo list from a given API and formats it into a CSV file.
+Gets a user's todo list from a given API and formats it into a CSV file.
 The CSV file is named using the user's ID and contains the following fields:
 USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE.
 """
@@ -32,12 +32,8 @@ def main():
     with open(filename, 'w', newline='') as f:
         # Define the CSV writer with specific fieldnames and quoting settings
         write_csv = csv.DictWriter(f, fieldnames=["USER_ID", "USERNAME",
-                                                  "TASK_COMPLETED_STATUS", "TASK_TITLE"],
+                                   "TASK_COMPLETED_STATUS", "TASK_TITLE"],
                                    quotechar='"', quoting=csv.QUOTE_ALL)
-        
-        # Write the header to the CSV file
-        write_csv.writeheader()
-
         # Write each todo item to the CSV file
         for j in todos:
             TASK_COMPLETED_STATUS = j.get("completed")
